@@ -17,7 +17,13 @@
 <section class="container">
 
     <p><a href="index.php">Back to homepage</a></p>
+    <?php if(!empty ($messageDelete)):?>
+        <div class="alert alert-success" role="alert">
+            <?php echo $messageDelete?>
+        </div>
+    <?php endif;?>
 
+    <?php if(empty ($messageDelete)):?>
     <div class="d-flex justify-content-center">
         <img class="m-3 w-25 rounded-circle text-center p-2" src="<?php echo $profileStudent->getImage(); ?>"
              alt="Profile picture">
@@ -34,6 +40,7 @@
         </form>
 
     <?php endif; ?>
+    <?php endif;?>
 
 
 </section>

@@ -63,6 +63,17 @@ class Allstudents
         }
     }
 
+    public function DeleteFromId($id)
+    {
+        foreach ($this->getStudents() as $student) {
+            if ($student->getId() == $id) {
+                $handle = $pdo->prepare('DELETE FROM student WHERE id = :id');
+                $handle->bindValue(':id', $id);
+                $handle->execute();
+            }
+        }
+    }
+
     public function addStudent($first_name, $last_name, $email, $password)
     {
         $pdo = openConnection();

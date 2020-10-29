@@ -12,6 +12,13 @@ class ProfileController
         var_dump($profileStudent);
         var_dump($_SESSION['user']);
 
+        if(isset($_POST['delete']) && $_SESSION['user']==$profileStudent->getId()){
+            $students->getStudentFromId($_SESSION['user']);
+            $messageDelete='Your record has been deleted';
+            $_SESSION['user']="";
+        }
+
+
         require 'View/profile.php';
     }
 
