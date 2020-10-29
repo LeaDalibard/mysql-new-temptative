@@ -28,7 +28,7 @@ Then we will create a login & registration form for the students to manage their
     - `created_at` *(auto fills in the timestamp when you create an entry, lookup how to do this, hint:look for this column name)*
     
 ### Step 2: 
-- [x]Create a `connection.php` file with a working PDO connection in it, like you learned from previous exercises.
+- [x] Create a `connection.php` file with a working PDO connection in it, like you learned from previous exercises.
 
 ### Step 3: 
 
