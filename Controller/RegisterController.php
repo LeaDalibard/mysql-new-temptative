@@ -17,7 +17,7 @@ class RegisterController
             $_SESSION["email"] = "";
         }
 
-
+        $students=new Allstudents();
         //-----------------------------------Check if email valid
         $messageregister ='';
 
@@ -43,7 +43,7 @@ class RegisterController
         //-----------------------------------    Register
 
        if (isset($_POST['register']) && $messageregister==''){
-           $register=new Student($_POST['first_name'],$_POST['last_name'],$_POST['email'],$_POST['psw']);
+           $register=$students->addStudent($_POST['first_name'],$_POST['last_name'],$_POST['email'],$_POST['psw']);
            $messagesucess="You have been registered";
        }
 

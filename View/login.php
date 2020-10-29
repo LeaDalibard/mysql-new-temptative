@@ -19,7 +19,42 @@
 
     <p><a href="index.php">Back to homepage</a></p>
 
+    <?php if(!empty($messagelogin)):?>
+        <div class="alert alert-danger" role="alert">
+            <?php echo $messagelogin?>
+        </div>
+    <?php endif;?>
 
+    <?php if(isset($messagesucess)):?>
+        <div class="alert alert-success" role="alert">
+            <?php echo $messagesucess?>
+        </div>
+    <?php endif;?>
+
+    <?php if(empty($messagesucess)):?>
+    <form method="post" id="login-user">
+
+        <h2>Login</h2>
+
+        <input type="hidden" name="id" value=""/>
+
+        <p>
+            <label for="loginmail">Email:</label>
+            <input type="text" name="loginmail" id="loginmail" value="<?php echo $_SESSION["loginmail"]; ?>"required value=""/>
+        </p>
+        <p>
+            <label for="loginpsw">Password:</label>
+            <input type="text" name="loginpsw" id="loginpsw" required value=""/>
+        </p>
+
+        <p>
+            <input type="submit" name="login" value="Login"/>
+        </p>
+
+
+    </form>
+
+    <?php endif;?>
 </section>
 
 <!-- Optional JavaScript -->
