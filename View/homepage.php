@@ -22,17 +22,25 @@
         <table class="table table-striped table-wide">
             <thead>
             <tr>
-                <th width="40%">Sport</th>
-                <th width="40%">Name</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Link to personal page</th>
                 <td colspan="2" width="20%"></td>
+
             </tr>
             </thead>
             <tbody>
 
+            <?php foreach ($students->getStudents() as $student): ?>
                 <tr>
-                    <td>Student</td>
-                    <td>name</td>
+                    <td><?php echo $student->getFirstName() ?></td>
+                    <td><?php echo $student->getLastName() ?></td>
+                    <td><?php echo $student->getEmail() ?></td>
+                    <td><a href="index.php?user=<?php echo $student->getId() ?>">Profile page</a></td>
                 </tr>
+            <?php endforeach; ?>
+
             </tbody>
 
 
