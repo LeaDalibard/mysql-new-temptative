@@ -22,6 +22,11 @@
             <?php echo $messageDelete?>
         </div>
     <?php endif;?>
+    <?php if(isset ($messageUpdate)):?>
+        <div class="alert alert-success" role="alert">
+            <?php echo $messageUpdate?>
+        </div>
+    <?php endif;?>
 
     <?php if(empty ($messageDelete)):?>
     <div class="d-flex justify-content-center">
@@ -41,7 +46,31 @@
 
     <?php endif; ?>
     <?php endif;?>
+    <?php if(isset($_POST['update'])):?>
+    <form method="post" id="update-user">
 
+        <h2>Update</h2>
+
+        <input type="hidden" name="id" value=""/>
+
+        <p>
+            <label for="new_first_name">First name:</label>
+            <input type="text" name="new_first_name" id="new_first_name" required value="<?php echo $profileStudent->getFirstName(); ?>"/>
+        </p>
+        <p>
+            <label for="new_last_name">Last name:</label>
+            <input type="text" name="new_last_name" id="new_last_name" required value="<?php echo $profileStudent->getLastName(); ?>"/>
+        </p>
+        <p>
+            <label for="new_email">Email:</label>
+            <input type="text" name="new_email" id="new_email" required value="<?php echo $profileStudent->getEmail(); ?>"/>
+        </p>
+
+        <p>
+            <input type="submit" name="update" value="Update"/>
+        </p>
+    </form>
+    <?php endif;?>
 
 </section>
 

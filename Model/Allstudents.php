@@ -65,6 +65,7 @@ class Allstudents
 
     public function DeleteFromId($id)
     {
+        $pdo = openConnection();
         foreach ($this->getStudents() as $student) {
             if ($student->getId() == $id) {
                 $handle = $pdo->prepare('DELETE FROM student WHERE id = :id');
@@ -73,6 +74,18 @@ class Allstudents
             }
         }
     }
+    public function updateStudent($first_name, $last_name, $email,$id)
+    {
+        $pdo = openConnection();
+        date_default_timezone_set("Europe/Brussels");
+        $handle = $pdo->prepare('UPDATE student SET first_name =:first_name,last_name =:last_name, email = :email WHERE id = :id');
+        $handle->bindValue(':id', $id);
+        $handle->bindValue(':first_name', $first_name);
+        $handle->bindValue(':last_name', $last_name);
+        $handle->bindValue(':email', $email);
+        $handle->execute();
+    }
+
 
     public function addStudent($first_name, $last_name, $email, $password)
     {
@@ -91,12 +104,6 @@ class Allstudents
         $handle->bindValue(':image', $image);
         $handle->execute();
 
-        $this->first_name = $first_name;
-        $this->last_name = $last_name;
-        $this->email = $email;
-        $this->created_at = $created_at;
-        $this->password = $password;
-        $this->image = $image;
     }
 
 }
