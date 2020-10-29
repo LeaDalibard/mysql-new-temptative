@@ -5,7 +5,7 @@ class RegisterController
 {
     public function render(array $GET, array $POST)
     {
-
+        $students=new Allstudents();
         //-----------------------------------Set Session
         if (!isset($_SESSION["first_name"])) {
             $_SESSION["first_name"] = "";
@@ -17,7 +17,7 @@ class RegisterController
             $_SESSION["email"] = "";
         }
 
-        $students=new Allstudents();
+
         //-----------------------------------Check if email valid
         $messageregister ='';
 

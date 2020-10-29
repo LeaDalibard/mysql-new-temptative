@@ -54,6 +54,15 @@ class Allstudents
         return $valid;
     }
 
+    public function getStudentFromId($id)
+    {
+        foreach ($this->getStudents() as $student) {
+            if ($student->getId() == $id) {
+                return $student;
+            }
+        }
+    }
+
     public function addStudent($first_name, $last_name, $email, $password)
     {
         $pdo = openConnection();

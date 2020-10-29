@@ -37,7 +37,9 @@
                     <td><?php echo $student->getFirstName() ?></td>
                     <td><?php echo $student->getLastName() ?></td>
                     <td><?php echo $student->getEmail() ?></td>
-                    <td><a href="index.php?user=<?php echo $student->getId() ?>">Profile page</a></td>
+                    <td><a href="index.php?page=profile&user=<?php echo $student->getId() ?>">Profile page</a></td>
+
+                    <!-- Possible to put to get with "&" in the middle -->
                 </tr>
             <?php endforeach; ?>
 
