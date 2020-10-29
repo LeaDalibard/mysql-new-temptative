@@ -1,22 +1,9 @@
 <?php require 'includes/header.php' ?>
 
-<!doctype html>
-<html lang="en">
-<head>
-    <title>Profile</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-<body>
 
 <section class="container">
 
-    <p><a href="index.php">Back to homepage</a></p>
+    <p><a class="text-light" href="index.php ">Back to homepage</a></p>
     <?php if(!empty ($messageDelete)):?>
         <div class="alert alert-success" role="alert">
             <?php echo $messageDelete?>
@@ -40,8 +27,8 @@
 
     <?php if ($profileStudent->getId() == $_SESSION['user']): ?>
         <form method="post">
-            <input type="submit" name="update" value="Update" class="btn btn-primary">
-            <input type="submit" name="delete" value="Delete" class="btn btn-danger">
+            <input type="submit" name="update" value="Update" class="btn btn-light">
+            <input type="submit" name="delete" value="Delete" class="btn btn-light">
         </form>
     <?php endif; ?>
 
@@ -89,5 +76,4 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-</body>
-</html>
+<?php require 'includes/footer.php' ?>ml>

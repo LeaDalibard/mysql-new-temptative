@@ -34,5 +34,6 @@ if (isset($_GET['page']) && $_GET['page'] === 'register') {
     $controller = new ProfileController();
 }
 
+// code can be break easily if you go to page with good user name should be fixed + can do !isset($controller) and set a default one
 
 $controller->render($_GET, $_POST);
