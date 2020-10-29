@@ -14,31 +14,37 @@ class LoginController
         if (!isset($_SESSION["user"])) {
             $_SESSION["user"] = "";
         }
+
+        $students = new Allstudents();
+
         //-----------------------------------Check Login
 
-        $messagelogin ="";
-
-        $students=new Allstudents();
+        $messagelogin = "";
 
 
         if (!empty($_POST["loginmail"])) {
-            $_SESSION["loginmail"] =$_POST["loginmail"];
-            $newuser=$students->checkUser($_POST["loginmail"]);
-            if(empty($newuser)){$messagelogin ="Something went wrong";}
-            else{$_SESSION["user"] = $newuser;}
+            $_SESSION["loginmail"] = $_POST["loginmail"];
+            $newuser = $students->checkUser($_POST["loginmail"]);
+            if (empty($newuser)) {
+                $messagelogin = "Something went wrong";
+            } else {
+                $_SESSION["user"] = $newuser->getId();
+            }
         }
         if (!empty($_POST["loginpsw"])) {
-            $valid=$students->checkPsw($_POST["loginmail"],$_POST["loginpsw"]);
-            if($valid==false){
-                $messagelogin ="Something went wrong";
-                $_SESSION["user"] ="";
-            } else {$_SESSION["user"] =$students->checkUser($_POST["loginmail"]);}
+            $valid = $students->checkPsw($_POST["loginmail"], $_POST["loginpsw"]);
+            if ($valid == false) {
+                $messagelogin = "Something went wrong";
+                $_SESSION["user"] = "";
+            } else {
+                $newuser = $students->checkUser($_POST["loginmail"]);
+                $_SESSION["user"] = $newuser->getId();
+            }
         }
 
-        if (isset($_POST['login']) &&  $messagelogin==''){
-            $messagesucess="You are now logged !";
+        if (isset($_POST['login']) && $messagelogin == '') {
+            $messagesucess = "You are now logged !";
         }
-
 
 
         require 'View/login.php';

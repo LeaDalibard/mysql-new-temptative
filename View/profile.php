@@ -1,4 +1,3 @@
-
 <?php require 'includes/header.php' ?>
 
 <!doctype html>
@@ -24,9 +23,18 @@
              alt="Profile picture">
     </div>
     <div class="media-body text-center">
-        <h5 class="mt-0"><?php echo $profileStudent->getFirstName()." ".$profileStudent->getLastName(); ?></h5>
+        <h5 class="mt-0"><?php echo $profileStudent->getFirstName() . " " . $profileStudent->getLastName(); ?></h5>
         <p><?php echo $profileStudent->getEmail(); ?></p>
     </div>
+
+    <?php if ($profileStudent->getId() == $_SESSION['user']): ?>
+        <form method="post">
+            <input type="submit" name="update" value="Update" class="btn btn-primary">
+            <input type="submit" name="delete" value="Delete" class="btn btn-danger">
+        </form>
+
+    <?php endif; ?>
+
 
 </section>
 
