@@ -17,10 +17,56 @@
 
     <p><a href="index.php">Back to homepage</a></p>
 
+    <?php if(!empty($messageregister)):?>
+        <div class="alert alert-danger" role="alert">
+            <?php echo $messageregister?>
+        </div>
+    <?php endif;?>
+
+    <?php if(isset($messagesucess)):?>
+        <div class="alert alert-success" role="alert">
+            <?php echo $messagesucess?>
+        </div>
+    <?php endif;?>
+
+    <form method="post" id="create-user">
+
+        <h2>Register</h2>
+
+        <input type="hidden" name="id" value=""/>
+
+        <p>
+            <label for="first_name">First name:</label>
+            <input type="text" name="first_name" id="first_name" required value="<?php echo $_SESSION["first_name"]; ?>"/>
+        </p>
+       <p>
+           <label for="last_name">Last name:</label>
+           <input type="text" name="last_name" id="last_name" required value="<?php echo $_SESSION["last_name"]; ?>"/>
+       </p>
+        <p>
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" required value="<?php echo $_SESSION["email"]; ?>"/>
+        </p>
+
+        <p>
+            <label for="psw">Password:</label>
+            <input type="text" name="psw" id="psw" required value=""/>
+        </p>
+
+        <p>
+            <label for="pswrpt">Password repeat:</label>
+            <input type="text" name="pswrpt" id="pswrpt" required value=""/>
+        </p>
+
+        <p>
+            <input type="submit" name="register" value="Register"/>
+        </p>
+
+
+    </form>
 
 
 </section>
-
 
 
 <!-- Optional JavaScript -->
