@@ -34,5 +34,5 @@ if (isset($_GET['page']) && $_GET['page'] === 'register') {
     $controller = new ProfileController();
 }
 
-var_dump($_SESSION);
+
 $controller->render($_GET, $_POST);

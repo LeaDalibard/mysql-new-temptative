@@ -44,7 +44,7 @@
         </p>
         <p>
             <label for="loginpsw">Password:</label>
-            <input type="text" name="loginpsw" id="loginpsw" required value=""/>
+            <input type="password" name="loginpsw" id="loginpsw" required value=""/>
         </p>
 
         <p>

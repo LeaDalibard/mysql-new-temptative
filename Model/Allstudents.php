@@ -74,15 +74,16 @@ class Allstudents
             }
         }
     }
-    public function updateStudent($first_name, $last_name, $email,$id)
+    public function updateStudent($first_name, $last_name, $email,$image,$id)
     {
         $pdo = openConnection();
         date_default_timezone_set("Europe/Brussels");
-        $handle = $pdo->prepare('UPDATE student SET first_name =:first_name,last_name =:last_name, email = :email WHERE id = :id');
+        $handle = $pdo->prepare('UPDATE student SET first_name =:first_name,last_name =:last_name, email = :email,image = :image WHERE id = :id');
         $handle->bindValue(':id', $id);
         $handle->bindValue(':first_name', $first_name);
         $handle->bindValue(':last_name', $last_name);
         $handle->bindValue(':email', $email);
+        $handle->bindValue(':image', $image);
         $handle->execute();
     }
 

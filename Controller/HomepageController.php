@@ -16,8 +16,6 @@ class HomepageController
             $_SESSION["user"] = "";
         }
 
-
-
         require 'View/homepage.php';
     }
 }

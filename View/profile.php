@@ -28,7 +28,7 @@
         </div>
     <?php endif;?>
 
-    <?php if(empty ($messageDelete)):?>
+    <?php if(empty ($messageDelete) && empty ($messageUpdate) ):?>
     <div class="d-flex justify-content-center">
         <img class="m-3 w-25 rounded-circle text-center p-2" src="<?php echo $profileStudent->getImage(); ?>"
              alt="Profile picture">
@@ -43,8 +43,8 @@
             <input type="submit" name="update" value="Update" class="btn btn-primary">
             <input type="submit" name="delete" value="Delete" class="btn btn-danger">
         </form>
-
     <?php endif; ?>
+
     <?php endif;?>
     <?php if(isset($_POST['update'])):?>
     <form method="post" id="update-user">
@@ -54,18 +54,22 @@
         <input type="hidden" name="id" value=""/>
 
         <p>
-            <label for="new_first_name">First name:</label>
+            <label for="new_first_name">First name :</label>
             <input type="text" name="new_first_name" id="new_first_name" required value="<?php echo $profileStudent->getFirstName(); ?>"/>
         </p>
         <p>
-            <label for="new_last_name">Last name:</label>
+            <label for="new_last_name">Last name :</label>
             <input type="text" name="new_last_name" id="new_last_name" required value="<?php echo $profileStudent->getLastName(); ?>"/>
         </p>
         <p>
-            <label for="new_email">Email:</label>
+            <label for="new_email">Email :</label>
             <input type="text" name="new_email" id="new_email" required value="<?php echo $profileStudent->getEmail(); ?>"/>
         </p>
 
+        <p>
+            <label for="new_image">Load a new image url :</label>
+            <input type="text" name="new_image" id="new_image" required value="<?php echo $profileStudent->getImage(); ?>"/>
+        </p>
         <p>
             <input type="submit" name="update" value="Update"/>
         </p>

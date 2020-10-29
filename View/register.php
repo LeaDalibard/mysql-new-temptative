@@ -50,12 +50,12 @@
 
         <p>
             <label for="psw">Password:</label>
-            <input type="text" name="psw" id="psw" required value=""/>
+            <input type="password" name="psw" id="psw" required value=""/>
         </p>
 
         <p>
             <label for="pswrpt">Password repeat:</label>
-            <input type="text" name="pswrpt" id="pswrpt" required value=""/>
+            <input type="password" name="pswrpt" id="pswrpt" required value=""/>
         </p>
 
         <p>

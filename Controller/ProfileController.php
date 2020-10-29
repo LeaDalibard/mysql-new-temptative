@@ -9,8 +9,7 @@ class ProfileController
 
         $students = new Allstudents();
         $profileStudent = $students->getStudentFromId($_SESSION["profileId"]);
-        var_dump($profileStudent);
-        var_dump($_SESSION['user']);
+
 
         if(isset($_POST['delete']) && $_SESSION['user']==$profileStudent->getId()){
             $students->DeleteFromId($_SESSION['user']);
@@ -19,8 +18,8 @@ class ProfileController
         }
 
         if(isset($_POST['update']) && $_SESSION['user']==$profileStudent->getId()){
-            if(isset($_POST['new_first_name'])&&isset($_POST['new_last_name'])&&isset($_POST['new_email'])){
-                $students->updateStudent($_POST['new_first_name'],$_POST['new_last_name'],$_POST['new_email'],$_SESSION['user']);
+            if(isset($_POST['new_first_name'])&&isset($_POST['new_last_name'])&&isset($_POST['new_email'])&&isset($_POST['new_image'])){
+                $students->updateStudent($_POST['new_first_name'],$_POST['new_last_name'],$_POST['new_email'],$_POST['new_image'],$_SESSION['user']);
                 $messageUpdate='Your record has been updated';
             }
         }
