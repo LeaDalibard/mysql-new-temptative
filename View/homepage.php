@@ -14,9 +14,38 @@
 <body>
 
 <section class="container">
-
+    <?php if(empty($_SESSION["user"])):?>
     <p><a href="index.php?page=register" class="btn btn-primary m-3">Register</a></p>
     <p><a href="index.php?page=login" class="btn btn-primary m-3">Login</a></p>
+    <?php endif;?>
+    <?php if(!empty($_SESSION["user"])):?>
+        <table class="table table-striped table-wide">
+            <thead>
+            <tr>
+                <th width="40%">Sport</th>
+                <th width="40%">Name</th>
+                <td colspan="2" width="20%"></td>
+            </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>Student</td>
+                    <td>name</td>
+                </tr>
+            </tbody>
+
+
+        </table>
+        <form method="post" id="logout">
+            <p>
+                <input type="submit" name="logout" value="Logout" class="btn btn-primary m-3"/>
+            </p>
+        </form>
+
+
+
+    <?php endif;?>
 
 </section>
 
